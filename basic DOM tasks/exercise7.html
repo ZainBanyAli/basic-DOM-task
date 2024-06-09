@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Flag </title>
+</head>
+
+<body>
+    <label for="countrySelect">Select a country:</label>
+    <select id="countrySelect" onchange="displayFlag()">
+        <option value="">Select a country</option>
+        <option value="usa">USA</option>
+        <option value="uk">UK</option>
+        <option value="france">France</option>
+        <option value="germany">Germany</option>
+        <option value="jordan">jordan</option>
+        <option value="norway">norway</option>
+        <option value="canada">canada</option>
+
+
+    </select>
+    <br>
+    <br>
+    <img id="flagImg" src="" alt="Flag" style="width: 200px; height: auto;">
+    <script>
+        function displayFlag() {
+            var selectElement = document.getElementById("countrySelect");
+            var selectedCountry = selectElement.value;
+            var flagImgElement = document.getElementById("flagImg");
+            var flagUrl = "";
+
+            var flagUrls = {
+                "usa": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+                "uk": "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg",
+                "france": "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg",
+                "germany": "https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg",
+                "jordan": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Flag_of_Jordan.svg/188px-Flag_of_Jordan.svg.png",
+                "norway": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/188px-Flag_of_Norway.svg.png",
+                "canada": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/188px-Flag_of_Canada_%28Pantone%29.svg.png",
+
+            };
+
+            if (flagUrls[selectedCountry]) {
+                flagUrl = flagUrls[selectedCountry];
+            } else {
+                flagUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_red_blank.svg/1280px-Flag_red_blank.svg.png"; // Default flag image if country not found
+            }
+
+            flagImgElement.src = flagUrl;
+        }
+    </script>
+</body>
+
+</html>
